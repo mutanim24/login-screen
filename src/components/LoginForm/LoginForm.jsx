@@ -17,10 +17,7 @@ const Container = styled.div`
   }
 `;
 
-// const Image = styled.img`
-//   max-width: 40%;
-//   border-radius: 10px;
-// `;
+
 const ImageWrapper = styled.div`
   width: 40%;
   @media (max-width: 768px) {
