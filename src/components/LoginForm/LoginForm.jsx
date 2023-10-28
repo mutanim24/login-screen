@@ -1,15 +1,20 @@
 
 import styled from 'styled-components';
+import { AiFillEyeInvisible } from 'react-icons/ai';
 
 
 const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: 70px;
+  gap: 50px;
   justify-content: space-between;
   margin: 0 auto;
-  max-width: 1000px;
   padding: 50px;
+  @media (max-width: 768px) {
+   display: block;
+   padding: 20px;
+   gap: 0px;
+  }
 `;
 
 // const Image = styled.img`
@@ -18,13 +23,21 @@ const Container = styled.div`
 // `;
 const ImageWrapper = styled.div`
   width: 40%;
-`
+  @media (max-width: 768px) {
+   width: 300px;
+  }
+`;
 
 const FormWrapper = styled.div`
   width: 60%;
   padding: 40px;
   box-shadow: 0 0 10px 10px #F5F5F5;
   border-radius: 12px;
+
+  @media (max-width: 768px) {
+   width: 85%;
+   padding: 30px;
+  }
 `;
 
 const Form = styled.form`
@@ -50,11 +63,33 @@ const Input = styled.input`
   margin: 10px 0;
   border-radius: 0.5rem;
   border: 1px solid rgba(4, 7, 47, 0.40);
+  @media (max-width: 768px) {
+   width: 95%;
+  }
 `;
+
+const Password = styled.div`
+  position: relative;
+`;
+
+const Icon = styled.p`
+  position: absolute;
+  top: 22px;
+  right: 0;
+  color: gray;
+`;
+
 
 const Span = styled.span`
   color: #F78719;
-`
+`;
+
+const Remember = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -15px;
+`;
 
 const Checkbox = styled.input`
   margin-right: 10px;
@@ -69,14 +104,24 @@ const Button = styled.button`
   cursor: pointer;
   width: 75%;
   margin: 0 auto;
+  @media (max-width: 768px) {
+   width: 100%;
+  }
 `;
+
+const Register = styled.p`
+  text-align: center;
+`;
+
+// media query
+
 
 // Form Component
 const LoginForm = () => {
   return (
     <Container>
       <ImageWrapper>
-        <svg width="344" height="434" viewBox="0 0 544 634" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="340" height="434" viewBox="0 0 544 634" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_1_41)">
             <path d="M525.662 233.529H17.0919C12.5605 233.523 8.21608 231.721 5.01184 228.517C1.8076 225.312 0.00517136 220.968 -6.10352e-05 216.437V17.092C0.00517136 12.5605 1.8076 8.21611 5.01184 5.01187C8.21608 1.80763 12.5605 0.00520188 17.0919 -3.05176e-05H525.662C530.194 0.00520188 534.538 1.80763 537.742 5.01187C540.946 8.21611 542.749 12.5605 542.754 17.092V216.437C542.749 220.968 540.946 225.312 537.742 228.517C534.538 231.721 530.193 233.523 525.662 233.529Z" fill="#F2F2F2" />
             <path d="M407.052 222.628H97.8197C74.7761 222.602 52.6838 213.436 36.3895 197.142C20.0952 180.848 10.9297 158.755 10.9037 135.712V97.8264C10.9297 74.7828 20.0952 52.6904 36.3894 36.396C52.6837 20.1016 74.776 10.936 97.8197 10.9098H444.937C467.981 10.936 490.073 20.1016 506.367 36.396C522.662 52.6904 531.827 74.7828 531.853 97.8264C531.816 130.914 518.655 162.636 495.258 186.033C471.862 209.429 440.14 222.59 407.052 222.628Z" fill="white" />
@@ -119,19 +164,24 @@ const LoginForm = () => {
             <Label htmlFor="loginid">Login ID</Label>
             <Input id='loginid' type="email" placeholder="Enter Login ID" />
           </div>
-          <div>
+          <Password>
             <Label htmlFor="password">Password</Label>
             <Input id='password' type="password" placeholder="Enter Password" />
-          </div>
-          <div>
-            <Checkbox type="checkbox" />
-            <label>Remember me</label>
-          </div>
+            <Icon><AiFillEyeInvisible></AiFillEyeInvisible></Icon>
+          </Password>
+          <Remember>
+            <div>
+              <Checkbox type="checkbox" />
+              <label>Remember me</label>
+            </div>
+            <Span>Change Password</Span>
+          </Remember>
           <div>
             <Checkbox type="checkbox" />
             <label>Agree to <Span>Terms & Conditions</Span></label>
           </div>
           <Button type="submit">Login</Button>
+          <Register>Don’t have an account? <Span>Register Here</Span></Register>
         </Form>
       </FormWrapper>
     </Container>
